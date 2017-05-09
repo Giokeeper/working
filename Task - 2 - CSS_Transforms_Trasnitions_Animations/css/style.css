@@ -1,8 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html, body {
   height: 100%;
   width: 100%;
@@ -10,17 +5,20 @@ html, body {
 
 body {
   background: #FFF;
+    margin: 0;
+    font-size: 16px;
+  padding: 0;
+
 }
 
 section {
-    min-width: 500px;
     display: flex
 }
 
-/*/=========FirstSlide=========/*/
+/*/=========FirstSlide=PainMove========/*/
 
 .first-slide {
-    background: url("../images/greygirlbg.png") center/50% 100% no-repeat;
+    background: url("../images/bg_start.png") center/100% 100% no-repeat;
     width: 100%;
     min-height: 800px;
     justify-content: center;
@@ -29,86 +27,132 @@ section {
 
 .pain, .pain2 {
     background: url("../images/pain.png") center/50% 100% no-repeat;
-    width:150px;
-    height:100px;
-    z-index:5;
+    width:5em;
+    height:3em;
+    z-index:1;
     position:relative;
-
-
-
-    -webkit-animation: pain 1s ease-in-out infinite alternate;
-    animation: pain 1s ease-in-out infinite alternate;
+opacity: 0;
+    animation: pain 1s ease-in-out 4;
 }
 
 @keyframes pain {
     0% {
         transform: scale(1.0);
+opacity: 0.75;}
+    50% {
+        transform: scale(1.5);
     }
     100% {
-        transform: scale(2.0);
+        transform: scale(1.0);
     }
 }
 
 
-/*/=========SecondSlide=========
+/*/=========SecondSlide=BgAppear========
+
+/*/
+
+
+
+/*/=========SecondSlide=DropBalls========/*
+
 
 .anim-balls {
   text-align: center;
+  position: absolute;
 }
 .anim-balls ul {
   text-align: center;
   list-style: none;
 }
 .anim-balls ul li {
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
-  background-color: orange;
+    background: url("../images/1.png") center/100% 100% no-repeat;
   display: inline-block;
   margin: 0 5px;
+  z-index: 10;
           transform: translateY(-30px);
-          animation: drop-balls 1.2s cubic-bezier(0.245, 0.325, 0.51, 1.305)  alternate;
+          animation:drop-balls 8s cubic-bezier(0.245, 0.325, 0.51, 1.305)  alternate;
 }
-.anim-balls ul li:nth-child(1) {
-  background: orange;
-          animation-delay: 0.6s;
+.anim-balls ul li:nth-child(2n) {
+          animation-delay: 6.6s;
 }
-.anim-balls ul li:nth-child(2) {
-  background: orange;
-          animation-delay: 0.7s;
-}
-.anim-balls ul li:nth-child(3) {
-  background: orange;
-          animation-delay: 0.8s;
-}
-.anim-balls ul li:nth-child(4) {
-  background: orange;
-          animation-delay: 0.6s;
-}
-.anim-balls ul li:nth-child(5) {
-  background: orange;
-          animation-delay: 0.6s;
-}
-.anim-balls ul li:nth-child(6) {
-  background: orange;
-          animation-delay: 0.7s;
+.anim-balls ul li:nth-child(2n+1) {
+          animation-delay: 6.7s;
 }
 
 @keyframes drop-balls {
-  30% {
-    -webkit-transform: translateY(-30px);
-            transform: translateY(-30px);
-  }
   60% {
-    -webkit-transform: translateY(205px);
             transform: translateY(205px);
   }
   80% {
-    -webkit-transform: translateY(190px);
             transform: translateY(190px);
   }
+100% {transform: translateY(200px)}
+}
+
+/*/
+
+.anim balls
+{position: absolute;
+	width: 100%;
+	height: 100%;}
+
+  .malat {    width:2em;
+    height:2em;
+    z-index:1;
+    position:relative;
+        background: url("../images/1.png") center/50% 50% no-repeat;
+opacity: 0;
+  animation: bgAppear linear 2s;
+  animation-delay: 4s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  }
+
+.malat:nth-child(1) {top: -105px;left:-5em;}
+.malat:nth-child(2) {top: -110px;left: -6em;}
+.malat:nth-child(3) {top: -110px;left:-7em}
+.malat:nth-child(4) {top: -100px;left: -5em;}
+.malat:nth-child(5) {top: -100px;left: -6em;}
+.malat:nth-child(6) {top:-95px;left:-5em;}
+.malat:nth-child(7) {top: -105px;left: -6em;}
+.malat:nth-child(8) {top: -100px;left: -6em;}
+.malat:nth-child(9) {top: -110px;left: -7em;}
+.malat:nth-child(10) {top: -100px;left: -6em;}
+
+  citrullin {    background: url("../images/2.png") center/100% 100% no-repeat;
+}
+
+
+.bg_end {
+    background: url(../images/bg_end.png) center/100% 100% no-repeat;
+    width: 35%;
+    height: 35%;
+    position: absolute;
+  animation: bgAppear linear 2s;
+  animation-delay: 4s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  animation-fill-mode:forwards; /*when the spec is finished*/
+  opacity: 0
+}
+
+@keyframes bgAppear{
+40% {opacity: 0.5;
+    transform:  scaleX(1.0) scaleY(1.00) ;}
+  80% {
+    opacity:0.75;
+    transform:  scaleX(1.5) scaleY(1.50) ;
+  }
   100% {
-    -webkit-transform: translateY(195px);
-            transform: translateY(195px);
+    opacity:0.9;
+    transform:  scaleX(2.00) scaleY(2.00) ;
+
+
   }
 }
+
