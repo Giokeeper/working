@@ -1,158 +1,211 @@
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
 
 body {
   background: #FFF;
-    margin: 0;
-    font-size: 16px;
+  margin: 0;
+  font-size: 16px;
   padding: 0;
-
 }
+
+
+/*/=========First=PainMove========/*/
 
 section {
+  background: url("../images/bg_start.png") center/100% 100% no-repeat;
+  width: 100%;
+  min-height: 60em;
+  justify-content: center;
+  align-items: center;
     display: flex
+
 }
 
-/*/=========FirstSlide=PainMove========/*/
-
-.first-slide {
-    background: url("../images/bg_start.png") center/100% 100% no-repeat;
-    width: 100%;
-    min-height: 800px;
-    justify-content: center;
-    align-items: center
-}
-
-.pain, .pain2 {
-    background: url("../images/pain.png") center/50% 100% no-repeat;
-    width:5em;
-    height:3em;
-    z-index:1;
-    position:relative;
-opacity: 0;
-    animation: pain 1s ease-in-out 4;
+.pain,
+.pain2 {
+  background: url("../images/pain.png") center/50% 100% no-repeat;
+  width: 5em;
+  height: 3em;
+  z-index: 1;
+  top: 10em;
+  left: 10em;
+  position: relative;
+  opacity: 0;
+  animation: pain 1s ease-in 4;
+  animation-delay: 1s
 }
 
 @keyframes pain {
-    0% {
-        transform: scale(1.0);
-opacity: 0.75;}
-    50% {
-        transform: scale(1.5);
-    }
-    100% {
-        transform: scale(1.0);
-    }
-}
-
-
-/*/=========SecondSlide=BgAppear========
-
-/*/
-
-
-
-/*/=========SecondSlide=DropBalls========/*
-
-
-.anim-balls {
-  text-align: center;
-  position: absolute;
-}
-.anim-balls ul {
-  text-align: center;
-  list-style: none;
-}
-.anim-balls ul li {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-    background: url("../images/1.png") center/100% 100% no-repeat;
-  display: inline-block;
-  margin: 0 5px;
-  z-index: 10;
-          transform: translateY(-30px);
-          animation:drop-balls 8s cubic-bezier(0.245, 0.325, 0.51, 1.305)  alternate;
-}
-.anim-balls ul li:nth-child(2n) {
-          animation-delay: 6.6s;
-}
-.anim-balls ul li:nth-child(2n+1) {
-          animation-delay: 6.7s;
-}
-
-@keyframes drop-balls {
-  60% {
-            transform: translateY(205px);
+  0% {
+    transform: scale(1.0);
+    opacity: 0.75;
   }
-  80% {
-            transform: translateY(190px);
-  }
-100% {transform: translateY(200px)}
-}
-
-/*/
-
-.anim balls
-{position: absolute;
-	width: 100%;
-	height: 100%;}
-
-  .malat {    width:2em;
-    height:2em;
-    z-index:1;
-    position:relative;
-        background: url("../images/1.png") center/50% 50% no-repeat;
-opacity: 0;
-  animation: bgAppear linear 2s;
-  animation-delay: 4s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  animation-fill-mode:forwards; /*when the spec is finished*/
-  }
-
-.malat:nth-child(1) {top: -105px;left:-5em;}
-.malat:nth-child(2) {top: -110px;left: -6em;}
-.malat:nth-child(3) {top: -110px;left:-7em}
-.malat:nth-child(4) {top: -100px;left: -5em;}
-.malat:nth-child(5) {top: -100px;left: -6em;}
-.malat:nth-child(6) {top:-95px;left:-5em;}
-.malat:nth-child(7) {top: -105px;left: -6em;}
-.malat:nth-child(8) {top: -100px;left: -6em;}
-.malat:nth-child(9) {top: -110px;left: -7em;}
-.malat:nth-child(10) {top: -100px;left: -6em;}
-
-  citrullin {    background: url("../images/2.png") center/100% 100% no-repeat;
-}
-
-
-.bg_end {
-    background: url(../images/bg_end.png) center/100% 100% no-repeat;
-    width: 35%;
-    height: 35%;
-    position: absolute;
-  animation: bgAppear linear 2s;
-  animation-delay: 4s;
-  animation-iteration-count: 1;
-  transform-origin: 50% 50%;
-  animation-fill-mode:forwards; /*when the spec is finished*/
-  opacity: 0
-}
-
-@keyframes bgAppear{
-40% {opacity: 0.5;
-    transform:  scaleX(1.0) scaleY(1.00) ;}
-  80% {
-    opacity:0.75;
-    transform:  scaleX(1.5) scaleY(1.50) ;
+  50% {
+    transform: scale(2);
   }
   100% {
-    opacity:0.9;
-    transform:  scaleX(2.00) scaleY(2.00) ;
-
-
+    transform: scale(1.0);
   }
 }
 
+.anim balls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.malat {
+  width: 2em;
+  height: 2em;
+  z-index: 120;
+  position: relative;
+  background: url("../images/capsule_malat.png") center/50% 50% no-repeat;
+  opacity: 0;
+  animation: moveMalat linear 5s;
+  animation-delay: 7s;
+  animation-iteration-count: 1;
+  transform-origin: 10% 10%;
+  animation-fill-mode: forwards;
+  /*when the spec is finished*/
+}
+
+
+@keyframes moveMalat{
+  0% {
+    opacity:0;
+  }
+  10%{opacity: 50%}
+  26% {
+    opacity:0.9490196636844608;
+    transform:  translate(2em,2em)  ;
+  }
+  51% {
+    opacity:0.9;
+    transform:  translate(2em,10em)  ;
+  }
+  100% {
+    opacity:0;
+    transform:  translate(2em,11em)  ;
+  }
+}
+
+
+.malat:nth-child(1) {
+  top: -8em;
+  left: -15em;
+}
+
+.malat:nth-child(2) {
+  top: -7em;
+  left: -16em;
+}
+
+.malat:nth-child(3) {
+  top: -7em;
+  left: -17em
+}
+
+.malat:nth-child(4) {
+  top: -9em;
+  left: -15em;
+}
+
+.malat:nth-child(5) {
+  top: -9em;
+  left: -16em;
+}
+
+.malat:nth-child(6) {
+  top: -9em;
+  left: -15em;
+}
+
+.malat:nth-child(7) {
+  top: -8em;
+  left: -16em;
+}
+
+.malat:nth-child(8) {
+  top: -9em;
+  left: -16em;
+}
+
+.malat:nth-child(9) {
+  top: -7em;
+  left: -17em;
+}
+
+.malat:nth-child(10) {
+  top: -9em;
+  left: -16em;
+}
+
+citrullin {
+  background: url("../images/capsule_citrullin.png") center/100% 100% no-repeat;
+}
+
+.bg_end {
+  background: url(../images/bg_end.png) center/100% 100% no-repeat;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  animation: bgAppear linear 2s;
+  animation-delay: 5s;
+  animation-iteration-count: 1;
+  transform-origin: 50% 50%;
+  animation-fill-mode: forwards;
+  opacity: 0;
+box-shadow: 0px 3px 300px 200px rgba(235,217,235,1);}
+@keyframes bgAppear {
+  0% { opacity: 0;
+box-shadow: 0px 3px 300px 200px rgba(235,217,235,1);}
+  40% {
+    opacity: 0.5;
+    transform: scaleX(1.0) scaleY(1.00);
+  }
+  80% {
+    opacity: 0.75;
+    transform: scaleX(1.5) scaleY(1.50);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scaleX(2.00) scaleY(2.00);
+  }
+}
+
+.capsule {  background: url(../images/capsule.png) center/100% 100% no-repeat;
+  width: 5em;
+  height: 3em;
+  z-index: 1;
+  top: 10em;
+  left: 10em;
+  position: relative;
+  opacity: 0;
+  animation: shine linear 1s;
+  animation-delay: 14s;
+  animation-iteration-count: 4;
+  transform-origin: 50% 50%;
+  animation-fill-mode: forwards;
+  opacity: 1;
+  z-index: 200}
+
+
+@keyframes shine {
+  0% { opacity: 1;
+box-shadow: 0px 3px 300px 200px rgba(235,217,235,1);}
+  40% {
+    opacity: 0.5;
+    transform: scaleX(1.0) scaleY(1.00);
+  }
+  80% {
+    opacity: 0.75;
+    transform: scaleX(1.5) scaleY(1.50);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scaleX(1.00) scaleY(1.00);
+  }
+}
